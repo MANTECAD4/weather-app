@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+/*
+  FONT-SIZE
+  10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+  
+  SPACING
+  2/ 4 / 8 / 12 / 16 /  24 / 32 / 48 / 64 / 80 / 96 / 128
+  */
+:root {
+  /* Neutral */
+  --Neutral-900: hsl(243, 96%, 9%);
+  --Neutral-800: hsl(243, 27%, 20%);
+  --Neutral-700: hsl(243, 23%, 24%);
+  --Neutral-600: hsl(243, 23%, 30%);
+  --Neutral-300: hsl(240, 6%, 70%);
+  --Neutral-200: hsl(250, 6%, 84%);
+  --Neutral-0: hsl(0, 0%, 100%);
+
+  /* Orange */
+  --Orange-500: hsl(28, 100%, 52%);
+
+  /* ### Blue */
+
+  --Blue-500: hsl(233, 67%, 56%);
+  --Blue-700: hsl(248, 70%, 36%);
+
+  --spacing-1: 0.2rem;
+  --spacing-2: 0.4rem;
+  --spacing-3: 0.8rem;
+  --spacing-4: 1.2rem;
+  --spacing-5: 1.6rem;
+  --spacing-6: 2.4rem;
+  --spacing-7: 3.2rem;
+  --spacing-8: 4.8rem;
+  --spacing-9: 6.4rem;
+  --spacing-10: 8rem;
+  --spacing-11: 9.6rem;
+  --spacing-12: 12.8rem;
+}
+html {
+  font-size: 62.5%;
+}
