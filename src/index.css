@@ -44,7 +44,7 @@ html {
 
 /* General classes for the project */
 .section-container {
-  max-width: 120rem;
+  max-width: 135rem;
   margin: 0 auto;
   padding: var(--spacing-6) var(--spacing-7);
 }

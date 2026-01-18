@@ -1,0 +1,44 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  grid-area: main;
+
+  padding: 0 1.6rem;
+  border-radius: 15px;
+
+  background-image: url("images/bg-today-large.svg");
+  background-size: cover;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.date {
+  margin: 0;
+}
+
+.location {
+  font-size: 2.4rem;
+  font-weight: 500;
+
+  margin: 1rem 0;
+}
+
+.temperature-block {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.weather-icon {
+  height: 11rem;
+  width: 11rem;
+}
+.temperature {
+  font-size: 8.24rem;
+  font-weight: 600;
+  font-style: italic;
+}

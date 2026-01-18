@@ -13,7 +13,7 @@ export const Theme = createTheme({
     },
     h1: {
       fontWeight: 700,
-      fontSize: "6.2rem",
+      fontSize: "4.8rem",
       lineHeight: 1.2,
       letterSpacing: "-0.00833em",
       textAlign: "center",
@@ -23,7 +23,8 @@ export const Theme = createTheme({
     },
     h2: {
       fontWeight: 300,
-      fontSize: "6.2rem",
+      fontSize: "2rem",
+      margin: "1.4rem 0",
       lineHeight: 1.2,
       letterSpacing: "-0.00833em",
     },
