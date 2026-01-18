@@ -1,0 +1,22 @@
+.search-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 2.4rem 1.6rem;
+}
+
+.search-input {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1.8rem;
+  width: 100%;
+}
+.search-input:focus {
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: inherit;
+}
