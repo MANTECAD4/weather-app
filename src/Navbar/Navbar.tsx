@@ -60,7 +60,7 @@ export const Navbar = () => {
           horizontal: "right",
         }}
         slotProps={{ paper: { sx: { borderRadius: 3 } } }}
-        sx={{ mt: 1.5 }}
+        sx={{ mt: 1.6 }}
       >
         <List
           sx={menuItemsStyles}
