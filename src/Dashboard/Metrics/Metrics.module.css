@@ -30,3 +30,41 @@
   font-size: 3rem;
   color: #a6a6a6;
 }
+
+/* 1360 px - SMALL LAPTOPS */
+@media (max-width: 85em) {
+}
+
+/* 1200 px - LANDSCAPE TABLETS */
+@media (max-width: 75em) {
+}
+
+/* 960 px - TABLETS */
+@media (max-width: 60em) {
+  /* .metrics-section {
+    gap: 3.2rem;
+  } */
+}
+
+/* 720 px - TABLETS */
+@media (max-width: 45em) {
+}
+
+/* 560 px - PHONES */
+@media (max-width: 35em) {
+  .metrics-section {
+    grid-template-columns: 1fr 1fr;
+  }
+  .label {
+    font-size: 2rem;
+  }
+  .metric {
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+  }
+}
+
+/* 480 px - SMALL PHONES */
+@media (max-width: 30em) {
+}

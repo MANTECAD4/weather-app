@@ -1,16 +1,45 @@
 .dashboard {
   display: grid;
   grid-template-areas:
-    "main main main main hourly hourly"
-    "main main main main hourly hourly"
-    "metrics metrics metrics metrics hourly hourly"
-    "daily daily daily daily hourly hourly"
-    "daily daily daily daily hourly hourly";
-  grid-template-columns: repeat(5, 8fr) 10fr;
-  grid-template-rows: repeat(4, 10fr) 8fr;
+    "main hourly"
+    "metrics hourly"
+    "daily hourly";
+  grid-template-columns: 4fr 2fr;
   gap: 3.2rem;
-
   margin-top: 4.8rem;
 
   width: 100%;
+}
+
+/* 1360 px - SMALL LAPTOPS */
+@media (max-width: 85em) {
+}
+
+/* 1200 px - LANDSCAPE TABLETS */
+@media (max-width: 75em) {
+}
+
+/* 960 px - TABLETS */
+@media (max-width: 60em) {
+  .dashboard {
+    grid-template-areas:
+      "main"
+      "metrics"
+      "daily"
+      "hourly";
+    grid-template-columns: 1fr;
+    gap: 3.2rem;
+  }
+}
+
+/* 720 px - TABLETS */
+@media (max-width: 45em) {
+}
+
+/* 560 px - PHONES */
+@media (max-width: 35em) {
+}
+
+/* 480 px - SMALL PHONES */
+@media (max-width: 30em) {
 }

@@ -33,3 +33,31 @@
   display: flex;
   justify-content: space-between;
 }
+
+/* 1360 px - SMALL LAPTOPS */
+@media (max-width: 85em) {
+}
+
+/* 1200 px - LANDSCAPE TABLETS */
+@media (max-width: 75em) {
+}
+
+/* 960 px - TABLETS */
+@media (max-width: 60em) {
+}
+
+/* 720 px - TABLETS */
+@media (max-width: 45em) {
+}
+
+/* 560 px - PHONES */
+@media (max-width: 35em) {
+  .days-list {
+    grid-template-columns: repeat(5, 1fr);
+    /* gap: 2.4rem; */
+  }
+}
+
+/* 480 px - SMALL PHONES */
+@media (max-width: 30em) {
+}

@@ -10,7 +10,6 @@
   display: flex;
   align-items: center;
 
-  height: 4.4rem;
   max-width: 60rem;
   width: 100%;
 }
@@ -21,8 +20,9 @@
 
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: var(--border-radius-1);
+  height: 4.4rem;
   padding: 0 1.4rem;
-  height: 100%;
+
   color: #aaa;
   width: 100%;
 }
@@ -44,4 +44,31 @@
 
 .search-input::placeholder {
   color: inherit;
+}
+
+/* 1360 px - SMALL LAPTOPS */
+@media (max-width: 85em) {
+}
+
+/* 1200 px - LANDSCAPE TABLETS */
+@media (max-width: 75em) {
+}
+
+/* 960 px - TABLETS */
+@media (max-width: 60em) {
+}
+
+/* 720 px - TABLETS */
+@media (max-width: 45em) {
+}
+
+/* 560 px - PHONES */
+@media (max-width: 35em) {
+}
+
+/* 480 px - SMALL PHONES */
+@media (max-width: 30em) {
+  .search-component {
+    flex-direction: column;
+  }
 }

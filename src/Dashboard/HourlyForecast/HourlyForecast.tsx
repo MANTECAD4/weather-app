@@ -5,10 +5,8 @@ import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 
 import styles from "./HourlyForecast.module.css";
-
 import { MenuDays } from "./Menu/MenuDays";
 import { listItemStyles, listStyles } from "./HourlyForecast.styles";
-
 export const HourlyForecast = () => {
   return (
     <Box className={styles["hourly-forecast-block"]}>
@@ -19,6 +17,51 @@ export const HourlyForecast = () => {
         <MenuDays />
       </Box>
       <List sx={listStyles}>
+        <ListItem sx={listItemStyles}>
+          <img
+            className={styles.icon}
+            src="images/icon-sunny.webp"
+            alt="Weather Icon"
+          />
+          <ListItemText primary="7 PM" />
+          <p>20°</p>
+        </ListItem>
+        <ListItem sx={listItemStyles}>
+          <img
+            className={styles.icon}
+            src="images/icon-sunny.webp"
+            alt="Weather Icon"
+          />
+          <ListItemText primary="7 PM" />
+          <p>20°</p>
+        </ListItem>
+        <ListItem sx={listItemStyles}>
+          <img
+            className={styles.icon}
+            src="images/icon-sunny.webp"
+            alt="Weather Icon"
+          />
+          <ListItemText primary="7 PM" />
+          <p>20°</p>
+        </ListItem>
+        <ListItem sx={listItemStyles}>
+          <img
+            className={styles.icon}
+            src="images/icon-sunny.webp"
+            alt="Weather Icon"
+          />
+          <ListItemText primary="7 PM" />
+          <p>20°</p>
+        </ListItem>
+        <ListItem sx={listItemStyles}>
+          <img
+            className={styles.icon}
+            src="images/icon-sunny.webp"
+            alt="Weather Icon"
+          />
+          <ListItemText primary="7 PM" />
+          <p>20°</p>
+        </ListItem>
         <ListItem sx={listItemStyles}>
           <img
             className={styles.icon}

@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 // ownerState
 export const SearchButton = styled(Button)(({ theme /* ...ownerState */ }) =>
   theme.unstable_sx({
-    height: "100%",
+    height: "4.4rem",
     backgroundColor: "hsl(233, 67%, 56%)",
     color: "#fff",
     textTransform: "none",
@@ -12,5 +12,6 @@ export const SearchButton = styled(Button)(({ theme /* ...ownerState */ }) =>
     fontWeight: 400,
     ml: 1.6,
     fontSize: "1.6rem",
+    // width: "100%",
   }),
 );
