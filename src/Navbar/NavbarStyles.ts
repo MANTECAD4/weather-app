@@ -1,6 +1,7 @@
 import { CSSProperties } from "@mui/material";
 
 export const menuBtnStyles: CSSProperties = {
+  fontSize: "1.6rem",
   display: "flex",
   alignItems: "center",
   color: "#fff",

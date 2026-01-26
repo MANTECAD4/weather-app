@@ -25,14 +25,16 @@ export const Navbar = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+    <Box className={styles.navbar}>
       <img className={styles.logo} src="images/logo.svg" alt="Weather Now" />
       <Button
         id="units-button"
         variant="contained"
         onClick={handleClick}
         disableRipple
-        startIcon={<SettingsOutlinedIcon />}
+        startIcon={
+          <SettingsOutlinedIcon sx={{ height: "3.2rem", width: "3.2rem" }} />
+        }
         endIcon={
           <KeyboardArrowDownIcon
             sx={{

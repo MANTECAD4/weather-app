@@ -12,10 +12,11 @@ export const Theme = createTheme({
       fontFamily: "'DM Sans', sans-serif",
     },
     h1: {
+      fontFamily: "'Bricolage Grotesque', sans-serif",
       fontWeight: 700,
       fontSize: "4.8rem",
-      lineHeight: 1.2,
-      letterSpacing: "-0.00833em",
+      lineHeight: 1.167,
+      letterSpacing: "0em",
       textAlign: "center",
       // fontSize: "9.8rem",
       // lineHeight: 1.167,

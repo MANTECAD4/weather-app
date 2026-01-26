@@ -1,12 +1,14 @@
 import Typography from "@mui/material/Typography";
 import styles from "./DailyForecast.module.css";
 import { FC } from "react";
-import { Skeleton } from "@mui/material";
+// import { Skeleton } from "@mui/material";
 export const DailyForecast = () => {
   return (
     <>
       <div className={styles["daily-forecast-block"]}>
-        <Typography variant="h2">Daily Forecast</Typography>
+        <Typography variant="h2" sx={{ my: 2.4 }}>
+          Daily Forecast
+        </Typography>
         <div className={styles["days-list"]}>
           {dailyForecast.map((dayPrediction) => (
             // <Skeleton sx={{ height: "100%" }} key={day}>

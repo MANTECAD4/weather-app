@@ -4,7 +4,7 @@
   justify-content: space-between;
   grid-area: main;
 
-  padding: 0 1.6rem;
+  padding: 6.4rem 2.4rem;
   border-radius: 15px;
 
   background-image: url("images/bg-today-large.svg");
@@ -18,27 +18,31 @@
 
 .date {
   margin: 0;
+
+  color: #c0c0c0;
 }
 
 .location {
-  font-size: 2.4rem;
-  font-weight: 500;
-
   margin: 1rem 0;
+
+  font-size: 2.6rem;
+  font-weight: 500;
 }
 
 .temperature-block {
   display: flex;
   align-items: center;
-  flex-direction: row;
 }
 
 .weather-icon {
   height: 11rem;
   width: 11rem;
+
+  margin-right: 1.6rem;
 }
 .temperature {
-  font-size: 8.24rem;
-  font-weight: 600;
+  font-size: 7.4rem;
+  font-weight: 500;
   font-style: italic;
+  letter-spacing: 0.25rem;
 }

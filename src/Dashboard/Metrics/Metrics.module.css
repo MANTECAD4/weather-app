@@ -1,24 +1,32 @@
+.metrics-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.4rem;
+  grid-area: metrics;
+}
 .metric {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
 
-  padding: 1rem 2rem;
-  border-radius: 15px;
+  padding: 1.4rem 2rem 1.2rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-1);
 
   background-color: rgba(255, 255, 255, 0.1);
 }
 
 .label {
-  font-size: 1.8rem;
-  color: #a2a2a2;
-
   margin: 0;
+
+  font-size: 1.6rem;
+  color: #a2a2a2;
+  text-transform: capitalize;
 }
 
 .data {
   margin: 0;
 
-  font-size: 3.2rem;
+  font-size: 3rem;
   color: #a6a6a6;
 }
