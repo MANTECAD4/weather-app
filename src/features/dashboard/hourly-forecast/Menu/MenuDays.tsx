@@ -6,8 +6,8 @@ import MenuItem from "@mui/material/MenuItem";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CheckIcon from "@mui/icons-material/Check";
-
 import { menuBtnStyles } from "../../../Navbar/NavbarStyles";
+
 export const MenuDays = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 

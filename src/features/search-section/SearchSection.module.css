@@ -7,8 +7,10 @@
 }
 
 .search-component {
-  display: flex;
+  display: grid;
+  grid-template-columns: 8fr 2fr;
   align-items: center;
+  gap: 1.6rem;
 
   max-width: 60rem;
   width: 100%;
@@ -69,6 +71,6 @@
 /* 480 px - SMALL PHONES */
 @media (max-width: 30em) {
   .search-component {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 }

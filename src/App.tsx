@@ -1,7 +1,8 @@
 import Box from "@mui/material/Box";
-import { Navbar } from "./Navbar";
-import { SearchSection } from "./SearchSection/SearchSection";
-import { Dashboard } from "./Dashboard/Dashboard";
+
+import { SearchSection } from "./features/search-section/SearchSection";
+import { Navbar } from "./features/navbar";
+import { Dashboard } from "./features/dashboard/Dashboard";
 
 export const App = () => {
   return (

@@ -10,8 +10,7 @@ export const SearchButton = styled(Button)(({ theme /* ...ownerState */ }) =>
     px: "3.2rem",
     borderRadius: "var(--border-radius-1)",
     fontWeight: 400,
-    ml: 1.6,
     fontSize: "1.6rem",
-    // width: "100%",
+    width: "100%",
   }),
 );
