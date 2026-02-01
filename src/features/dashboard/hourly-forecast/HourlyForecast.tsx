@@ -5,7 +5,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 
 import styles from "./HourlyForecast.module.css";
-import { MenuDays } from "./Menu/MenuDays";
+import { MenuDays } from "./menu/MenuDays";
 import { listItemStyles, listStyles } from "./HourlyForecast.styles";
 export const HourlyForecast = () => {
   return (

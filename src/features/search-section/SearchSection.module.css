@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
 
-  padding: 0 1.6rem;
+  /* padding: 0 1.6rem; */
 }
 
 .search-component {
@@ -72,5 +72,13 @@
 @media (max-width: 30em) {
   .search-component {
     grid-template-columns: 1fr;
+
+    max-width: 100%;
   }
+  /* .search-field {
+    height: 5.2rem;
+  }
+  .search-field input[type="text"] {
+    font-size: 2rem;
+  } */
 }
