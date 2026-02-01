@@ -12,7 +12,7 @@ import List from "@mui/material/List";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemButton from "@mui/material/ListItemButton";
 import Avatar from "@mui/material/Avatar";
-import { ListItemText } from "@mui/material";
+import { ListItem, ListItemText, Menu } from "@mui/material";
 export const SearchSection = () => {
   const {
     queryString,
@@ -27,9 +27,13 @@ export const SearchSection = () => {
   return (
     <Box component="section" className={styles["search-section"]}>
       <Typography variant="h1" sx={{ m: "4.8rem 0 6.4rem 0" }}>
-        How's the sky looking today? {debouncedQueryString}
+        How's the sky looking today?
       </Typography>
-      <Box aria-describedby={id} className={styles["search-component"]}>
+      <Box
+        aria-describedby={id}
+        className={styles["search-component"]}
+        // sx={{ border: "1px solid green" }}
+      >
         <Box
           className={styles["search-field"]}
           onClick={(e) => setAnchorEl(e.currentTarget)}
@@ -52,7 +56,7 @@ export const SearchSection = () => {
           />
         </Box>
         <SearchButton variant="contained">Search</SearchButton>
-        <Popover
+        <Menu
           id={id}
           open={isMenuOpen}
           anchorEl={anchorEl}
@@ -67,13 +71,28 @@ export const SearchSection = () => {
             vertical: "top",
             horizontal: "left",
           }}
-          sx={{ mt: 1, maxHeight: "35rem" }}
+          sx={{
+            mt: 1,
+          }}
+          slotProps={{
+            paper: {
+              sx: {
+                // width: "calc(100% -6.4rem)",
+                width: "60rem",
+              },
+            },
+          }}
         >
-          {isFetching ? (
-            <p>Loading</p>
-          ) : (
-            <List sx={{ width: "100%" }}>
-              {locations.map(
+          <List sx={{ width: "100%" }}>
+            {isFetching ? (
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar></Avatar>
+                </ListItemAvatar>
+                <ListItemText primary={"Search in progress..."} />
+              </ListItem>
+            ) : (
+              locations.map(
                 ({
                   name,
                   country_code,
@@ -82,12 +101,13 @@ export const SearchSection = () => {
                   admin2,
                   admin3,
                   admin4,
+                  id,
                 }) => {
                   const locationDetails = [admin4, admin3, admin2, admin1]
                     .filter(Boolean)
                     .join(", ");
                   return (
-                    <ListItemButton dense>
+                    <ListItemButton dense key={id}>
                       <ListItemAvatar>
                         <Avatar>
                           <img
@@ -106,10 +126,10 @@ export const SearchSection = () => {
                     </ListItemButton>
                   );
                 },
-              )}
-            </List>
-          )}
-        </Popover>
+              )
+            )}
+          </List>
+        </Menu>
       </Box>
     </Box>
   );

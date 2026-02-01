@@ -2,23 +2,70 @@ import React, { useState } from "react";
 
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Divider from "@mui/material/Divider";
+
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import ListSubheader from "@mui/material/ListSubheader";
+
 import Popover from "@mui/material/Popover";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import CheckIcon from "@mui/icons-material/Check";
 
 import styles from "./Navbar.module.css";
 import { menuBtnStyles, menuItemsStyles } from "./NavbarStyles";
+import {
+  PrecipitationUnits,
+  TemperatureUnits,
+  useUnits,
+  WindSpeedUnits,
+} from "../../providers/app-state-context/AppState";
+import { UnitsMenuItem } from "./menu/UnitsMenuItem";
 
 export const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const isMenuOpen = Boolean(anchorEl);
+
+  const {
+    temperatureUnits,
+    windSpeedUnits,
+    precipitationUnits,
+    setPrecipitationUnits,
+    setTemperatureUnits,
+    setWindSpeedUnits,
+    usesImperial,
+    changeMetrics,
+  } = useUnits((state) => state);
+
+  const menuSections = [
+    {
+      header: "Temperature",
+      active: temperatureUnits,
+      options: [
+        { label: "Celsius (°C)", value: TemperatureUnits.CELSIUS },
+        { label: "Fahrenheit (°F)", value: TemperatureUnits.FAHRENHEIT },
+      ],
+      setterFn: setTemperatureUnits,
+    },
+    {
+      header: "Wind Speed",
+      active: windSpeedUnits,
+      options: [
+        { label: "Km/h", value: WindSpeedUnits.KMH },
+        { label: "Mph", value: WindSpeedUnits.MPH },
+      ],
+      setterFn: setWindSpeedUnits,
+    },
+    {
+      header: "Precipitation",
+      active: precipitationUnits,
+      options: [
+        { label: "Milimeters (mm)", value: PrecipitationUnits.MILIMETERS },
+        { label: "Inches (in)", value: PrecipitationUnits.INCHES },
+      ],
+      setterFn: setPrecipitationUnits,
+    },
+  ];
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     anchorEl ? setAnchorEl(null) : setAnchorEl(event.currentTarget);
@@ -70,10 +117,22 @@ export const Navbar = () => {
           component="nav"
           aria-labelledby="nested-list-subheader"
         >
-          <ListItemButton>
-            <ListItemText primary="Switch to imperial" />
+          <ListItemButton onClick={() => changeMetrics()}>
+            <ListItemText
+              primary={usesImperial ? "Switch to Metric" : "Switch to Imperial"}
+            />
           </ListItemButton>
-          {menuItems.map(({ header, items }) => (
+          {menuSections.map((sectionData) => (
+            <UnitsMenuItem key={sectionData.header} {...sectionData} />
+          ))}
+        </List>
+      </Popover>
+    </Box>
+  );
+};
+
+{
+  /* {menuItems.map(({ header, items }) => (
             <React.Fragment key={header}>
               <Divider />
               <ListSubheader
@@ -94,15 +153,52 @@ export const Navbar = () => {
                 </ListItemButton>
               ))}
             </React.Fragment>
-          ))}
-        </List>
-      </Popover>
-    </Box>
-  );
-};
+          ))} */
+}
 
-const menuItems = [
-  { header: "Temperature", items: ["Celsius (°C)", "Fahrenheit (°F)"] },
-  { header: "Wind Speed", items: ["Km/h", "Mph"] },
-  { header: "Precipitation", items: ["Milimeters (mm)", "Inches (in)"] },
-];
+{
+  /* <Divider />
+          <ListSubheader
+            component="div"
+            id="nested-list-subheader"
+            sx={listItemSubheaderStyles}
+          >
+            Temperature
+          </ListSubheader>
+          {temperatureUnitsLabels.map((label) => (
+            <ListItemButton key={label}>
+              <ListItemText primary={label} />
+              <CheckIcon />
+            </ListItemButton>
+          ))}
+
+          <Divider />
+          <ListSubheader
+            component="div"
+            id="nested-list-subheader"
+            sx={listItemSubheaderStyles}
+          >
+            Wind Speed
+          </ListSubheader>
+          {windSpeedUnitsLabels.map((label) => (
+            <ListItemButton key={label}>
+              <ListItemText primary={label} />
+              <CheckIcon />
+            </ListItemButton>
+          ))}
+
+          <Divider />
+          <ListSubheader
+            component="div"
+            id="nested-list-subheader"
+            sx={listItemSubheaderStyles}
+          >
+            Precipitation
+          </ListSubheader>
+          {precipitationUnitsLabels.map((label) => (
+            <ListItemButton key={label}>
+              <ListItemText primary={label} />
+              <CheckIcon />
+            </ListItemButton>
+          ))} */
+}

@@ -15,3 +15,9 @@ export const menuItemsStyles = {
   bgcolor: "rgba(55, 55, 55,0.6)",
   px: 0.5,
 };
+
+export const listItemSubheaderStyles: CSSProperties = {
+  fontSize: "1.4rem",
+  pointerEvents: "none",
+  bgcolor: "rgba(55, 55, 55,0.6)",
+};

@@ -17,6 +17,8 @@ export const useSearch = () => {
     queryKey: ["locations", debouncedQueryString],
     enabled: debouncedQueryString !== "",
     initialData: [],
+    refetchOnWindowFocus: false,
+    // staleTime: 1000 * 60 * 15,
   });
 
   return {
