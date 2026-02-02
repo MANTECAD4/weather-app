@@ -1,9 +1,5 @@
 import { create } from "zustand";
 
-// export enum MeasurmentUnits {
-//   METRIC = "metric",
-//   IMPERIAL = "imperial",
-// }
 export enum TemperatureUnits {
   CELSIUS = "celsius",
   FAHRENHEIT = "fahrenheit",

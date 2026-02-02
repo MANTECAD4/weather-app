@@ -7,12 +7,14 @@ import { SearchButton } from "./SearchSection.styles";
 
 import styles from "./SearchSection.module.css";
 import { useSearch } from "./hooks/useSearch";
-import Popover from "@mui/material/Popover";
 import List from "@mui/material/List";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemButton from "@mui/material/ListItemButton";
 import Avatar from "@mui/material/Avatar";
-import { ListItem, ListItemText, Menu } from "@mui/material";
+import Menu from "@mui/material/Menu";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import { CircularProgress } from "@mui/material";
 export const SearchSection = () => {
   const {
     queryString,
@@ -22,7 +24,6 @@ export const SearchSection = () => {
     isMenuOpen,
     setAnchorEl,
     locationsQuery: { data: locations, isFetching },
-    debouncedQueryString,
   } = useSearch();
   return (
     <Box component="section" className={styles["search-section"]}>
@@ -79,6 +80,7 @@ export const SearchSection = () => {
               sx: {
                 // width: "calc(100% -6.4rem)",
                 width: "60rem",
+                maxHeight: "35rem",
               },
             },
           }}
@@ -87,7 +89,7 @@ export const SearchSection = () => {
             {isFetching ? (
               <ListItem>
                 <ListItemAvatar>
-                  <Avatar></Avatar>
+                  <CircularProgress />
                 </ListItemAvatar>
                 <ListItemText primary={"Search in progress..."} />
               </ListItem>
@@ -102,6 +104,8 @@ export const SearchSection = () => {
                   admin3,
                   admin4,
                   id,
+                  latitude,
+                  longitude,
                 }) => {
                   const locationDetails = [admin4, admin3, admin2, admin1]
                     .filter(Boolean)

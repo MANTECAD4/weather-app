@@ -6,7 +6,7 @@ import {
 } from "../../../shared/interfaces/geo-coding.interface";
 
 export const getLocations = async (location: string): Promise<Location[]> => {
-  await sleep(1500);
+  await sleep(2500);
   const { data } = await geoCodingApi.get<GeoCodingLocationResponse>(
     `/search?name=${location}&language=en&format=json`,
   );

@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
@@ -14,63 +12,20 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 
 import styles from "./Navbar.module.css";
 import { menuBtnStyles, menuItemsStyles } from "./NavbarStyles";
-import {
-  PrecipitationUnits,
-  TemperatureUnits,
-  useUnits,
-  WindSpeedUnits,
-} from "../../providers/app-state-context/AppState";
+
 import { UnitsMenuItem } from "./menu/UnitsMenuItem";
+import { useNavbar } from "./hooks/useNavbar";
 
 export const Navbar = () => {
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-  const isMenuOpen = Boolean(anchorEl);
-
   const {
-    temperatureUnits,
-    windSpeedUnits,
-    precipitationUnits,
-    setPrecipitationUnits,
-    setTemperatureUnits,
-    setWindSpeedUnits,
-    usesImperial,
+    anchorEl,
     changeMetrics,
-  } = useUnits((state) => state);
-
-  const menuSections = [
-    {
-      header: "Temperature",
-      active: temperatureUnits,
-      options: [
-        { label: "Celsius (°C)", value: TemperatureUnits.CELSIUS },
-        { label: "Fahrenheit (°F)", value: TemperatureUnits.FAHRENHEIT },
-      ],
-      setterFn: setTemperatureUnits,
-    },
-    {
-      header: "Wind Speed",
-      active: windSpeedUnits,
-      options: [
-        { label: "Km/h", value: WindSpeedUnits.KMH },
-        { label: "Mph", value: WindSpeedUnits.MPH },
-      ],
-      setterFn: setWindSpeedUnits,
-    },
-    {
-      header: "Precipitation",
-      active: precipitationUnits,
-      options: [
-        { label: "Milimeters (mm)", value: PrecipitationUnits.MILIMETERS },
-        { label: "Inches (in)", value: PrecipitationUnits.INCHES },
-      ],
-      setterFn: setPrecipitationUnits,
-    },
-  ];
-
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    anchorEl ? setAnchorEl(null) : setAnchorEl(event.currentTarget);
-  };
-
+    handleClick,
+    isMenuOpen,
+    menuSections,
+    setAnchorEl,
+    usesImperial,
+  } = useNavbar();
   return (
     <Box className={styles.navbar}>
       <img className={styles.logo} src="images/logo.svg" alt="Weather Now" />
@@ -130,75 +85,3 @@ export const Navbar = () => {
     </Box>
   );
 };
-
-{
-  /* {menuItems.map(({ header, items }) => (
-            <React.Fragment key={header}>
-              <Divider />
-              <ListSubheader
-                component="div"
-                id="nested-list-subheader"
-                sx={{
-                  fontSize: "1.4rem",
-                  pointerEvents: "none",
-                  bgcolor: "rgba(55, 55, 55,0.6)",
-                }}
-              >
-                {header}
-              </ListSubheader>
-              {items.map((item) => (
-                <ListItemButton key={item}>
-                  <ListItemText primary={item} />
-                  <CheckIcon />
-                </ListItemButton>
-              ))}
-            </React.Fragment>
-          ))} */
-}
-
-{
-  /* <Divider />
-          <ListSubheader
-            component="div"
-            id="nested-list-subheader"
-            sx={listItemSubheaderStyles}
-          >
-            Temperature
-          </ListSubheader>
-          {temperatureUnitsLabels.map((label) => (
-            <ListItemButton key={label}>
-              <ListItemText primary={label} />
-              <CheckIcon />
-            </ListItemButton>
-          ))}
-
-          <Divider />
-          <ListSubheader
-            component="div"
-            id="nested-list-subheader"
-            sx={listItemSubheaderStyles}
-          >
-            Wind Speed
-          </ListSubheader>
-          {windSpeedUnitsLabels.map((label) => (
-            <ListItemButton key={label}>
-              <ListItemText primary={label} />
-              <CheckIcon />
-            </ListItemButton>
-          ))}
-
-          <Divider />
-          <ListSubheader
-            component="div"
-            id="nested-list-subheader"
-            sx={listItemSubheaderStyles}
-          >
-            Precipitation
-          </ListSubheader>
-          {precipitationUnitsLabels.map((label) => (
-            <ListItemButton key={label}>
-              <ListItemText primary={label} />
-              <CheckIcon />
-            </ListItemButton>
-          ))} */
-}

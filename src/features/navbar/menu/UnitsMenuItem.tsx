@@ -11,39 +11,7 @@ import {
   PrecipitationUnits,
   TemperatureUnits,
   WindSpeedUnits,
-} from "../../../providers/app-state-context/AppState";
-
-// type PropsTemperatureSection = {
-//   header: string;
-//   active: TemperatureUnits;
-//   options: {
-//     label: string;
-//     value: TemperatureUnits;
-//   }[];
-//   setterFn: (units: TemperatureUnits) => void;
-// };
-
-// type PropsWindSpeedSection = {
-//   header: string;
-//   active: WindSpeedUnits;
-//   options: {
-//     label: string;
-//     value: WindSpeedUnits;
-//   }[];
-//   setterFn: (units: WindSpeedUnits) => void;
-// };
-
-// type PropsPrecipitationSection = {
-//   header: string;
-//   active: PrecipitationUnits;
-//   options: {
-//     label: string;
-//     value: PrecipitationUnits;
-//   }[];
-//   setterFn: (
-//     units: TemperatureUnits | WindSpeedUnits | PrecipitationUnits,
-//   ) => void;
-// };
+} from "../../../providers/app-state/AppState";
 
 type Props = {
   header: string;
@@ -52,9 +20,7 @@ type Props = {
     label: string;
     value: TemperatureUnits | WindSpeedUnits | PrecipitationUnits;
   }[];
-  setterFn: (
-    units: TemperatureUnits | WindSpeedUnits | PrecipitationUnits,
-  ) => void;
+  setterFn: Function;
 };
 
 export const UnitsMenuItem: FC<Props> = (props) => {
