@@ -1,14 +1,25 @@
 import { geoCodingApi } from "../../../api/geocoding.api";
-import { sleep } from "../../../shared/helpers/sleep";
+import { sleep } from "../../../helpers/sleep";
 import {
   GeoCodingLocationResponse,
   Location,
-} from "../../../shared/interfaces/geo-coding.interface";
+} from "../../../interfaces/geo-coding.interface";
 
 export const getLocations = async (location: string): Promise<Location[]> => {
-  await sleep(2500);
+  await sleep(1500);
+
+  const params = new URLSearchParams({
+    name: location,
+    // count: "10",
+    language: "en",
+    format: "json",
+  });
+
   const { data } = await geoCodingApi.get<GeoCodingLocationResponse>(
-    `/search?name=${location}&language=en&format=json`,
+    `/search?`,
+    {
+      params,
+    },
   );
   const { results: locations = [] } = data;
   return locations;

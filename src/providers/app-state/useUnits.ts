@@ -13,37 +13,24 @@ export enum PrecipitationUnits {
   INCHES = "inches",
 }
 
-interface LocationCoordinates {
-  latitude: number;
-  longitude: number;
-}
-
-interface AppState {
-  locationCoordinates: LocationCoordinates;
+interface UnitsSlice {
   usesImperial: boolean;
   temperatureUnits: TemperatureUnits;
   windSpeedUnits: WindSpeedUnits;
   precipitationUnits: PrecipitationUnits;
 
-  setLocationCoordinates: (coordinates: LocationCoordinates) => void;
   setTemperatureUnits: (units: TemperatureUnits) => void;
   setWindSpeedUnits: (units: WindSpeedUnits) => void;
   setPrecipitationUnits: (units: PrecipitationUnits) => void;
   changeMetrics: () => void;
 }
 
-export const useUnits = create<AppState>((set) => ({
-  locationCoordinates: {
-    latitude: 52.52,
-    longitude: 13.41,
-  },
+export const useUnits = create<UnitsSlice>((set) => ({
   usesImperial: false,
   precipitationUnits: PrecipitationUnits.MILIMETERS,
   temperatureUnits: TemperatureUnits.CELSIUS,
   windSpeedUnits: WindSpeedUnits.KMH,
 
-  setLocationCoordinates: (coordinates: LocationCoordinates) =>
-    set({ locationCoordinates: coordinates }),
   changeMetrics: () =>
     set((state) => {
       const usesImperial = !state.usesImperial;

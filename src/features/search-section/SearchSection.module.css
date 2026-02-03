@@ -7,8 +7,10 @@
 }
 
 .search-component {
+  position: relative;
+
   display: grid;
-  grid-template-columns: 8fr 2fr;
+  grid-template-columns: 1fr;
   align-items: center;
   gap: 1.6rem;
 

@@ -3,7 +3,7 @@ import {
   TemperatureUnits,
   useUnits,
   WindSpeedUnits,
-} from "../../../providers/app-state/AppState";
+} from "../../../providers/app-state/useUnits";
 import React, { useState } from "react";
 
 export const useNavbar = () => {
