@@ -1,17 +1,9 @@
 import { create } from "zustand";
-
-export enum TemperatureUnits {
-  CELSIUS = "celsius",
-  FAHRENHEIT = "fahrenheit",
-}
-export enum WindSpeedUnits {
-  KMH = "kilometers",
-  MPH = "miles",
-}
-export enum PrecipitationUnits {
-  MILIMETERS = "milimeters",
-  INCHES = "inches",
-}
+import {
+  PrecipitationUnits,
+  TemperatureUnits,
+  WindSpeedUnits,
+} from "../../interfaces/units";
 
 interface UnitsSlice {
   usesImperial: boolean;

@@ -1,9 +1,9 @@
 import {
   PrecipitationUnits,
   TemperatureUnits,
-  useUnits,
   WindSpeedUnits,
-} from "../../../providers/app-state/useUnits";
+} from "../../../interfaces/units";
+import { useUnits } from "../../../providers/app-state/useUnits";
 import React, { useState } from "react";
 
 export const useNavbar = () => {

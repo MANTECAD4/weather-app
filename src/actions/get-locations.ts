@@ -1,9 +1,9 @@
-import { geoCodingApi } from "../../../api/geocoding.api";
-import { sleep } from "../../../helpers/sleep";
+import { geoCodingApi } from "../api/geocoding.api";
+import { sleep } from "../helpers/sleep";
 import {
   GeoCodingLocationResponse,
   Location,
-} from "../../../interfaces/geo-coding.interface";
+} from "../interfaces/geo-coding.interface";
 
 export const getLocations = async (location: string): Promise<Location[]> => {
   await sleep(1500);

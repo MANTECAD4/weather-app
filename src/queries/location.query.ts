@@ -1,4 +1,4 @@
-import { getLocations } from "../features/search-section/actions/get-locations";
+import { getLocations } from "../actions";
 
 export const locationQuery = (location: string) => ({
   queryFn: () => getLocations(location),

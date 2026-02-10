@@ -10,7 +10,7 @@ export const MainCard = () => {
     <div className={styles.card}>
       <div className={styles["info-block"]}>
         <p className={styles.location}>{name}</p>
-        <p className={styles.location}>{locationDetails}</p>
+        <p className={styles["location-details"]}>{locationDetails}</p>
         <Typography className={styles.date}>Tuesday, Aug 5, 2025</Typography>
       </div>
       <div className={styles["temperature-block"]}>

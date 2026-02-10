@@ -35,42 +35,6 @@ export const HourlyForecast = () => {
           <ListItemText primary="7 PM" />
           <p>20°</p>
         </ListItem>
-        <ListItem sx={listItemStyles}>
-          <img
-            className={styles.icon}
-            src="images/icon-sunny.webp"
-            alt="Weather Icon"
-          />
-          <ListItemText primary="7 PM" />
-          <p>20°</p>
-        </ListItem>
-        <ListItem sx={listItemStyles}>
-          <img
-            className={styles.icon}
-            src="images/icon-sunny.webp"
-            alt="Weather Icon"
-          />
-          <ListItemText primary="7 PM" />
-          <p>20°</p>
-        </ListItem>
-        <ListItem sx={listItemStyles}>
-          <img
-            className={styles.icon}
-            src="images/icon-sunny.webp"
-            alt="Weather Icon"
-          />
-          <ListItemText primary="7 PM" />
-          <p>20°</p>
-        </ListItem>
-        <ListItem sx={listItemStyles}>
-          <img
-            className={styles.icon}
-            src="images/icon-sunny.webp"
-            alt="Weather Icon"
-          />
-          <ListItemText primary="7 PM" />
-          <p>20°</p>
-        </ListItem>
       </List>
     </Box>
   );

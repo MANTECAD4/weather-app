@@ -21,7 +21,6 @@ export const SearchSection = () => {
     id,
     isMenuOpen,
     setIsInputActive,
-    isInputActive,
     locationsQuery: { data: locations = [], isFetching, isFetched },
     handleLocationSelection,
   } = useSearch();
@@ -33,7 +32,6 @@ export const SearchSection = () => {
       <ClickAwayListener
         onClickAway={() => {
           setIsInputActive(false);
-          console.log("clicked", { isInputActive });
         }}
       >
         <Box
@@ -70,13 +68,16 @@ export const SearchSection = () => {
                 // maxHeight: "35rem",
                 // overflowY: "scroll",
                 left: 0,
+                zIndex: 10,
               }}
             >
               <List>
                 {isFetching ? (
                   <ListItem dense>
                     <ListItemAvatar>
-                      <CircularProgress />
+                      <CircularProgress
+                        sx={{ fontSize: "1rem", color: "#acacac" }}
+                      />
                     </ListItemAvatar>
                     <ListItemText primary={"Search in progress..."} />
                   </ListItem>
@@ -94,9 +95,10 @@ export const SearchSection = () => {
                       latitude,
                       longitude,
                     }) => {
-                      const locationDetails = [admin4, admin3, admin2, admin1]
-                        .filter(Boolean)
-                        .join(", ");
+                      const locationDetails =
+                        [admin4, admin3, admin2, admin1]
+                          .filter(Boolean)
+                          .join(", ") + `, ${country}`;
                       return (
                         <ListItemButton
                           dense
