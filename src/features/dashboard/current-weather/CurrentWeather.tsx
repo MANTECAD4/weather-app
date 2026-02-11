@@ -9,6 +9,7 @@ import {
   TemperatureUnits,
   WindSpeedUnits,
 } from "../../../interfaces/units";
+import { getWeatherIcon } from "../../../helpers/getWeatherIcon";
 
 export const CurrentWeather = () => {
   const { locationDetails, name, currentWeatherResult } = useCurrentWeather();
@@ -59,7 +60,7 @@ export const CurrentWeather = () => {
         </div>
         <div className={styles["temperature-block"]}>
           <img
-            src="images/icon-sunny.webp"
+            src={`images/weather-icons/${getWeatherIcon(currentWeatherResult?.weather_code ?? 0)}`}
             className={styles["weather-icon"]}
             alt="Weather Icon"
           />

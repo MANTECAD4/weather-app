@@ -2,6 +2,7 @@ import Typography from "@mui/material/Typography";
 import styles from "./DailyForecast.module.css";
 import { FC } from "react";
 import { useDailyForecast } from "../../../hooks/useDailyForecast";
+import { getWeatherIcon } from "../../../helpers/getWeatherIcon";
 // import { Skeleton } from "@mui/material";
 export const DailyForecast = () => {
   const { forecastForTheWeek } = useDailyForecast();
@@ -25,15 +26,19 @@ export const DailyForecast = () => {
 
 type Props = {
   day: string;
-  icon: string;
-  maxTemperature: number;
-  minTemperature: number;
+  code: number;
+  maxTemperature: string;
+  minTemperature: string;
 };
-const MiniCard: FC<Props> = ({ day, icon, maxTemperature, minTemperature }) => {
+const MiniCard: FC<Props> = ({ day, code, maxTemperature, minTemperature }) => {
   return (
     <div className={styles["mini-card"]}>
       <p className={styles["day-label"]}>{day}</p>
-      <img className={styles.icon} src={icon} alt="Weather Icon" />
+      <img
+        className={styles.icon}
+        src={`images/weather-icons/${getWeatherIcon(code)}`}
+        alt="Weather Icon"
+      />
       <div className={styles.temperatures}>
         <span>{maxTemperature}°</span>
         <span>{minTemperature}°</span>
