@@ -16,12 +16,12 @@ export const CurrentWeather = () => {
   const metrics = [
     {
       label: "Feels like",
-      data: currentWeatherResult?.relative_humidity_2m ?? 0,
+      data: currentWeatherResult?.apparent_temperature ?? 0,
       unit: temperatureUnit === TemperatureUnits.CELSIUS ? "°C" : "°F",
     },
     {
       label: "Humidity",
-      data: currentWeatherResult?.apparent_temperature ?? 0,
+      data: currentWeatherResult?.relative_humidity_2m ?? 0,
       unit: "%",
     },
     {
@@ -36,13 +36,26 @@ export const CurrentWeather = () => {
     },
   ];
 
+  const dateInstance = currentWeatherResult
+    ? new Date(currentWeatherResult.time)
+    : new Date();
+
+  const day = String(
+    new Intl.DateTimeFormat("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    }).format(dateInstance),
+  );
+
   return (
     <>
       <div className={styles.card}>
         <div className={styles["info-block"]}>
           <p className={styles.location}>{name}</p>
           <p className={styles["location-details"]}>{locationDetails}</p>
-          <Typography className={styles.date}>Tuesday, Aug 5, 2025</Typography>
+          <Typography className={styles.date}>{`${day}`}</Typography>
         </div>
         <div className={styles["temperature-block"]}>
           <img
@@ -51,7 +64,7 @@ export const CurrentWeather = () => {
             alt="Weather Icon"
           />
           <span className={styles.temperature}>
-            {currentWeatherResult?.temperature_2m}°
+            {currentWeatherResult?.temperature_2m ?? 0}°
           </span>
         </div>
       </div>
