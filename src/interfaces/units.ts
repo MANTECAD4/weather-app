@@ -7,6 +7,6 @@ export enum WindSpeedUnits {
   MPH = "mph",
 }
 export enum PrecipitationUnits {
-  MILIMETERS = "milimeter",
+  MILIMETERS = "mm",
   INCHES = "inch",
 }

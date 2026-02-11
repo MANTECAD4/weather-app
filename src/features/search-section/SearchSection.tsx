@@ -98,7 +98,7 @@ export const SearchSection = () => {
                       const locationDetails =
                         [admin4, admin3, admin2, admin1]
                           .filter(Boolean)
-                          .join(", ") + `, ${country}`;
+                          .join(", ") + `, ${country}.`;
                       return (
                         <ListItemButton
                           dense

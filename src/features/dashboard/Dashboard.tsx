@@ -1,13 +1,11 @@
-import { Metrics } from "./metrics/Metrics";
 import styles from "./Dashboard.module.css";
-import { MainCard } from "./main-card/MainCard";
+import { CurrentWeather } from "./current-weather/CurrentWeather";
 import { DailyForecast } from "./daily-forecast/DailyForecast";
 import { HourlyForecast } from "./hourly-forecast/HourlyForecast";
 export const Dashboard = () => {
   return (
     <section className={styles.dashboard}>
-      <MainCard />
-      <Metrics />
+      <CurrentWeather />
       <DailyForecast />
       <HourlyForecast />
     </section>

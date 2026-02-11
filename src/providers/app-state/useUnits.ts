@@ -7,9 +7,9 @@ import {
 
 interface UnitsSlice {
   usesImperial: boolean;
-  temperatureUnits: TemperatureUnits;
-  windSpeedUnits: WindSpeedUnits;
-  precipitationUnits: PrecipitationUnits;
+  temperatureUnit: TemperatureUnits;
+  windSpeedUnit: WindSpeedUnits;
+  precipitationUnit: PrecipitationUnits;
 
   setTemperatureUnits: (units: TemperatureUnits) => void;
   setWindSpeedUnits: (units: WindSpeedUnits) => void;
@@ -19,9 +19,9 @@ interface UnitsSlice {
 
 export const useUnits = create<UnitsSlice>((set) => ({
   usesImperial: false,
-  precipitationUnits: PrecipitationUnits.MILIMETERS,
-  temperatureUnits: TemperatureUnits.CELSIUS,
-  windSpeedUnits: WindSpeedUnits.KMH,
+  precipitationUnit: PrecipitationUnits.MILIMETERS,
+  temperatureUnit: TemperatureUnits.CELSIUS,
+  windSpeedUnit: WindSpeedUnits.KMH,
 
   changeMetrics: () =>
     set((state) => {
@@ -29,18 +29,18 @@ export const useUnits = create<UnitsSlice>((set) => ({
 
       return {
         usesImperial,
-        precipitationUnits: usesImperial
+        precipitationUnit: usesImperial
           ? PrecipitationUnits.INCHES
           : PrecipitationUnits.MILIMETERS,
-        temperatureUnits: usesImperial
+        temperatureUnit: usesImperial
           ? TemperatureUnits.FAHRENHEIT
           : TemperatureUnits.CELSIUS,
-        windSpeedUnits: usesImperial ? WindSpeedUnits.MPH : WindSpeedUnits.KMH,
+        windSpeedUnit: usesImperial ? WindSpeedUnits.MPH : WindSpeedUnits.KMH,
       };
     }),
   setTemperatureUnits: (units: TemperatureUnits) =>
-    set({ temperatureUnits: units }),
-  setWindSpeedUnits: (units: WindSpeedUnits) => set({ windSpeedUnits: units }),
+    set({ temperatureUnit: units }),
+  setWindSpeedUnits: (units: WindSpeedUnits) => set({ windSpeedUnit: units }),
   setPrecipitationUnits: (units: PrecipitationUnits) =>
-    set({ precipitationUnits: units }),
+    set({ precipitationUnit: units }),
 }));

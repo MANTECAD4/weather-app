@@ -11,9 +11,9 @@ export const useNavbar = () => {
   const isMenuOpen = Boolean(anchorEl);
 
   const {
-    temperatureUnits,
-    windSpeedUnits,
-    precipitationUnits,
+    temperatureUnit: temperatureUnits,
+    windSpeedUnit: windSpeedUnits,
+    precipitationUnit: precipitationUnits,
     setPrecipitationUnits,
     setTemperatureUnits,
     setWindSpeedUnits,
