@@ -13,6 +13,7 @@ export const getLocations = async (location: string): Promise<Location[]> => {
     // count: "10",
     language: "en",
     format: "json",
+    timezone: "auto",
   });
 
   const { data } = await geoCodingApi.get<GeoCodingLocationResponse>(

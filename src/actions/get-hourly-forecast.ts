@@ -29,6 +29,7 @@ export const getHourlyForecast = async (
     `latitude=${latitude}` +
     `&longitude=${longitude}` +
     `&hourly=temperature_2m,weather_code` +
+    "&timezone=auto" +
     `&temperature_unit=${temperatureUnit}`;
 
   const {

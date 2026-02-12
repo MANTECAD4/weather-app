@@ -1,5 +1,10 @@
 import { Hourly } from "../interfaces/open-meteo.interface";
 import { getDayName } from "./getDayName";
+
+export interface DayForecast {
+  day: string;
+  forecast: FormatedHourlyForecast[];
+}
 interface FormatedHourlyForecast {
   time: string;
   temperature: string;
@@ -13,7 +18,7 @@ export const splitHourlyForecast = (
 
   const { temperature_2m, time, weather_code } = hourlyForecastForTheWeek;
 
-  const formatedForecast = {};
+  const formatedForecast: DayForecast[] = [];
 
   const sliceSize = temperature_2m.length / 7;
 
@@ -30,8 +35,10 @@ export const splitHourlyForecast = (
         code: weather_code[indexj],
       });
     }
-    formatedForecast[getDayName(new Date(dayForecast[0].time), "long")] =
-      structuredClone(dayForecast);
+    formatedForecast.push({
+      day: getDayName(new Date(dayForecast[0].time), "long"),
+      forecast: structuredClone(dayForecast),
+    });
   }
 
   return formatedForecast;

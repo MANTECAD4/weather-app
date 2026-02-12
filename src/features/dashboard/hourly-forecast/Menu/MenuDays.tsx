@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
@@ -6,18 +6,24 @@ import MenuItem from "@mui/material/MenuItem";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CheckIcon from "@mui/icons-material/Check";
-import { menuBtnStyles } from "../../../Navbar/NavbarStyles";
+import { menuBtnStyles } from "../../../navbar/NavbarStyles";
+import { DayForecast } from "../../../../helpers/splitHourlyForecast";
 
-export const MenuDays = () => {
+interface Props {
+  selectedForecast: DayForecast | null;
+  setForecast: Function;
+  forecastForTheWeek: DayForecast[];
+}
+export const MenuDays: FC<Props> = (props) => {
+  const { forecastForTheWeek, selectedForecast, setForecast } = props;
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
   const isMenuOpen = Boolean(anchorEl);
 
-  const [selectedDay, setSelectedDay] = useState<string>("Monday");
-
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     anchorEl ? setAnchorEl(null) : setAnchorEl(event.currentTarget);
   };
+  if (!selectedForecast) return <></>;
   return (
     <>
       <Button
@@ -42,7 +48,7 @@ export const MenuDays = () => {
           />
         }
       >
-        {selectedDay}
+        {selectedForecast.day}
       </Button>
       <Menu
         id="basic-menu"
@@ -65,14 +71,14 @@ export const MenuDays = () => {
         }}
         sx={{ mt: 1.6 }}
       >
-        {days.map((day) => (
+        {forecastForTheWeek.map((forecast) => (
           <MenuItem
-            key={day}
+            key={forecast.day}
             onClick={() => {
               setAnchorEl(null);
-              setSelectedDay(day);
+              setForecast(forecast);
             }}
-            selected={day === selectedDay}
+            selected={forecast.day === selectedForecast.day}
             sx={{
               display: "flex",
               justifyContent: "space-between",
@@ -80,21 +86,11 @@ export const MenuDays = () => {
               //   fontSize: "1.8rem",
             }}
           >
-            {day}
-            {day === selectedDay ? <CheckIcon /> : null}
+            {forecast.day}
+            {forecast.day === selectedForecast.day ? <CheckIcon /> : null}
           </MenuItem>
         ))}
       </Menu>
     </>
   );
 };
-
-const days = [
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday",
-];

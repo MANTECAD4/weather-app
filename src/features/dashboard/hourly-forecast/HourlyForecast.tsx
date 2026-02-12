@@ -7,34 +7,42 @@ import Typography from "@mui/material/Typography";
 import styles from "./HourlyForecast.module.css";
 import { MenuDays } from "./menu/MenuDays";
 import { listItemStyles, listStyles } from "./HourlyForecast.styles";
+import { useHourlyForecast } from "../../../hooks/useHourlyForecast";
+import { getWeatherIcon } from "../../../helpers/getWeatherIcon";
+import { getShortHour } from "../../../helpers/getShortHour";
 export const HourlyForecast = () => {
+  const {
+    selectedForecast,
+    setSelectedForecast,
+    formatedForecastPerDay,
+    isFetching,
+  } = useHourlyForecast();
+  if (isFetching) return <p>loading</p>;
   return (
     <Box className={styles["hourly-forecast-block"]}>
       <Box className={styles["forecast-heading"]}>
         <Typography variant="h2" sx={{ fontWeight: 400 }}>
           Hourly Forecast
         </Typography>
-        <MenuDays />
+        <MenuDays
+          selectedForecast={selectedForecast}
+          setForecast={setSelectedForecast}
+          forecastForTheWeek={formatedForecastPerDay}
+        />
       </Box>
       <List sx={listStyles}>
-        <ListItem sx={listItemStyles}>
-          <img
-            className={styles.icon}
-            src="images/icon-sunny.webp"
-            alt="Weather Icon"
-          />
-          <ListItemText primary="7 PM" />
-          <p>20°</p>
-        </ListItem>
-        <ListItem sx={listItemStyles}>
-          <img
-            className={styles.icon}
-            src="images/icon-sunny.webp"
-            alt="Weather Icon"
-          />
-          <ListItemText primary="7 PM" />
-          <p>20°</p>
-        </ListItem>
+        {selectedForecast &&
+          selectedForecast.forecast?.map(({ time, code, temperature }) => (
+            <ListItem sx={listItemStyles} key={time}>
+              <img
+                className={styles.icon}
+                src={`images/weather-icons/${getWeatherIcon(code)}`}
+                alt="Weather Icon"
+              />
+              <ListItemText primary={getShortHour(new Date(time))} />
+              <p>{temperature}°</p>
+            </ListItem>
+          ))}
       </List>
     </Box>
   );

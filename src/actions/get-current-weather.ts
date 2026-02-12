@@ -35,6 +35,7 @@ export const getCurrentWeather = async (
     `&longitude=${longitude}` +
     `&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,weather_code,precipitation,wind_speed_10m` +
     `&wind_speed_unit=${windSpeedUnit}` +
+    "&timezone=auto" +
     `&temperature_unit=${temperatureUnit}` +
     `&precipitation_unit=${precipitationUnit}`;
 

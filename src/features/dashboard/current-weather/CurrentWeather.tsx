@@ -65,7 +65,7 @@ export const CurrentWeather = () => {
             alt="Weather Icon"
           />
           <span className={styles.temperature}>
-            {currentWeatherResult?.temperature_2m ?? 0}°
+            {currentWeatherResult?.temperature_2m?.toFixed(0) ?? 0}°
           </span>
         </div>
       </div>
