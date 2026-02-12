@@ -1,4 +1,5 @@
 import { Daily } from "../interfaces/open-meteo.interface";
+import { getDayName } from "./getDayName";
 
 interface Forecast {
   day: string;
@@ -25,11 +26,8 @@ export const getForecastForTheWeek = (
       Number(dayDigit),
     );
 
-    const day = String(
-      new Intl.DateTimeFormat("en-US", {
-        weekday: "short",
-      }).format(dateInstance),
-    );
+    const day = getDayName(dateInstance, "short");
+
     forecastForTheWeek.push({
       code: dailyForecastResult?.weather_code[index] ?? 0,
       day: day,
@@ -39,5 +37,6 @@ export const getForecastForTheWeek = (
         dailyForecastResult?.temperature_2m_min[index].toFixed(0) ?? "0",
     });
   }
+
   return forecastForTheWeek;
 };
