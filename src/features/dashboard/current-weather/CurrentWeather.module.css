@@ -4,9 +4,10 @@
   justify-content: space-between;
   grid-area: main;
 
-  padding: 6.4rem 2.4rem;
+  padding: 0 2.4rem;
   border-radius: 15px;
 
+  height: 25rem;
   background-image: url("images/bg-today-large.svg");
   background-size: cover;
 }
@@ -51,4 +52,54 @@
   font-weight: 500;
   font-style: italic;
   letter-spacing: 0.25rem;
+}
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #555;
+  border-radius: 15px;
+
+  height: 25rem;
+  background-color: #333;
+}
+
+.text-loading {
+  margin: 2.4rem 0 0 0;
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+}
+.dots-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.dot {
+  height: 1.4rem;
+  width: 1.4rem;
+  background-color: #777;
+  border-radius: 50%;
+}
+
+.dot:nth-child(1) {
+  animation: 1.5s 1s jump infinite both;
+}
+.dot:nth-child(2) {
+  animation: 1.5s 1.33s jump infinite both;
+}
+.dot:nth-child(3) {
+  animation: 1.5s 1.6s jump infinite both;
+}
+
+@keyframes jump {
+  0%,
+  100% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
 }

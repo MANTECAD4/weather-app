@@ -10,6 +10,7 @@ import {
   WindSpeedUnits,
 } from "../../../interfaces/units";
 import { getWeatherIcon } from "../../../helpers/getWeatherIcon";
+import Box from "@mui/material/Box";
 
 export const CurrentWeather = () => {
   const { locationDetails, name, currentWeatherResult } = useCurrentWeather();
@@ -52,8 +53,16 @@ export const CurrentWeather = () => {
 
   return (
     <>
-      <div className={styles.card}>
-        <div className={styles["info-block"]}>
+      <Box className={styles.skeleton}>
+        <Box className={styles["dots-container"]}>
+          <div className={styles.dot} />
+          <div className={styles.dot} />
+          <div className={styles.dot} />
+        </Box>
+        <p className={styles["text-loading"]}>Loading...</p>
+      </Box>
+      {/*<div className={styles.card}>
+         <div className={styles["info-block"]}>
           <p className={styles.location}>{name}</p>
           <p className={styles["location-details"]}>{locationDetails}</p>
           <Typography className={styles.date}>{`${day}`}</Typography>
@@ -68,7 +77,7 @@ export const CurrentWeather = () => {
             {currentWeatherResult?.temperature_2m?.toFixed(0) ?? 0}°
           </span>
         </div>
-      </div>
+      </div> */}
       <Metrics metricsData={metrics} />
     </>
   );
