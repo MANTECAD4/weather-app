@@ -23,6 +23,16 @@
   height: 6.2rem;
 }
 
+.skeleton {
+  height: 6.5rem;
+  border-radius: 15px;
+  border: 1px solid #555;
+  background-color: #333;
+  /* opacity: 0; */
+  animation: 2.5s pulse ease-in infinite both;
+  margin-bottom: 2.4rem;
+}
+
 /* 1360 px - SMALL LAPTOPS */
 @media (max-width: 85em) {
 }
@@ -45,4 +55,14 @@
 
 /* 480 px - SMALL PHONES */
 @media (max-width: 30em) {
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
 }
