@@ -3,9 +3,8 @@ import styles from "./DailyForecast.module.css";
 import { FC } from "react";
 import { useDailyForecast } from "../../../hooks/useDailyForecast";
 import { getWeatherIcon } from "../../../helpers/getWeatherIcon";
-// import { Skeleton } from "@mui/material";
 export const DailyForecast = () => {
-  const { forecastForTheWeek } = useDailyForecast();
+  const { forecastForTheWeek, isFetchingFromOpenMeteo } = useDailyForecast();
   return (
     <>
       <div className={styles["daily-forecast-block"]}>
@@ -13,11 +12,21 @@ export const DailyForecast = () => {
           Daily Forecast
         </Typography>
         <div className={styles["days-list"]}>
-          {forecastForTheWeek.map((dayPrediction) => (
-            // <Skeleton sx={{ height: "100%" }} key={day}>
-            <MiniCard key={dayPrediction.day} {...dayPrediction} />
-            // </Skeleton>
-          ))}
+          {isFetchingFromOpenMeteo ? (
+            <>
+              <div className={styles.skeleton}></div>
+              <div className={styles.skeleton}></div>
+              <div className={styles.skeleton}></div>
+              <div className={styles.skeleton}></div>
+              <div className={styles.skeleton}></div>
+              <div className={styles.skeleton}></div>
+              <div className={styles.skeleton}></div>
+            </>
+          ) : (
+            forecastForTheWeek.map((dayPrediction) => (
+              <MiniCard key={dayPrediction.day} {...dayPrediction} />
+            ))
+          )}
         </div>
       </div>
     </>
