@@ -10,12 +10,12 @@ import { menuBtnStyles } from "../../../navbar/NavbarStyles";
 import { DayForecast } from "../../../../helpers/splitHourlyForecast";
 
 interface Props {
-  selectedForecast: DayForecast | null;
-  setForecast: Function;
+  selectedDay: number;
+  setDay: Function;
   forecastForTheWeek: DayForecast[];
 }
 export const MenuDays: FC<Props> = (props) => {
-  const { forecastForTheWeek, selectedForecast, setForecast } = props;
+  const { forecastForTheWeek, selectedDay, setDay } = props;
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
   const isMenuOpen = Boolean(anchorEl);
@@ -23,7 +23,6 @@ export const MenuDays: FC<Props> = (props) => {
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     anchorEl ? setAnchorEl(null) : setAnchorEl(event.currentTarget);
   };
-  if (!selectedForecast) return <></>;
   return (
     <>
       <Button
@@ -48,7 +47,7 @@ export const MenuDays: FC<Props> = (props) => {
           />
         }
       >
-        {selectedForecast.day}
+        {forecastForTheWeek[selectedDay].day}
       </Button>
       <Menu
         id="basic-menu"
@@ -71,14 +70,14 @@ export const MenuDays: FC<Props> = (props) => {
         }}
         sx={{ mt: 1.6 }}
       >
-        {forecastForTheWeek.map((forecast) => (
+        {forecastForTheWeek.map((forecast, index) => (
           <MenuItem
             key={forecast.day}
             onClick={() => {
               setAnchorEl(null);
-              setForecast(forecast);
+              setDay(index);
             }}
-            selected={forecast.day === selectedForecast.day}
+            selected={index === selectedDay}
             sx={{
               display: "flex",
               justifyContent: "space-between",
@@ -87,7 +86,7 @@ export const MenuDays: FC<Props> = (props) => {
             }}
           >
             {forecast.day}
-            {forecast.day === selectedForecast.day ? <CheckIcon /> : null}
+            {index === selectedDay ? <CheckIcon /> : null}
           </MenuItem>
         ))}
       </Menu>

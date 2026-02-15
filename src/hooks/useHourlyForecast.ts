@@ -1,39 +1,30 @@
-import { useQuery } from "@tanstack/react-query";
+import { useIsFetching, useQuery } from "@tanstack/react-query";
 import { hourlyForecastQuery } from "../queries/hourly-forecast.query";
 import { useLocation } from "../providers/app-state/useLocation";
 import { useUnits } from "../providers/app-state/useUnits";
-import {
-  DayForecast,
-  splitHourlyForecast,
-} from "../helpers/splitHourlyForecast";
-import { useEffect, useMemo, useState } from "react";
+import { splitHourlyForecast } from "../helpers/splitHourlyForecast";
+import { useMemo, useState } from "react";
 
 export const useHourlyForecast = () => {
+  const [selectedDay, setSelectedDay] = useState<number>(0);
   const { locationCoordinates } = useLocation();
 
   const { temperatureUnit } = useUnits();
 
-  const { data: hourlyForecastForTheWeek, isFetching } = useQuery(
-    hourlyForecastQuery({ coordinates: locationCoordinates, temperatureUnit }),
-  );
-  const formatedForecastPerDay = useMemo(
-    () => splitHourlyForecast(hourlyForecastForTheWeek),
-    [hourlyForecastForTheWeek],
-  );
+  const { data: hourlyForecastForTheWeek = [{ day: "-", forecast: [] }] } =
+    useQuery(
+      hourlyForecastQuery({
+        coordinates: locationCoordinates,
+        temperatureUnit,
+      }),
+    );
 
-  const [selectedForecast, setSelectedForecast] = useState<DayForecast | null>(
-    null,
-  );
-
-  useEffect(() => {
-    setSelectedForecast(formatedForecastPerDay[0] ?? { day: "", forecast: [] });
-  }, [setSelectedForecast, formatedForecastPerDay]);
-
-  console.log({ formatedForecastPerDay, selectedForecast });
+  const numQueries = useIsFetching({ queryKey: ["open-meteo"] });
+  const isFetchingFromOpenMeteo = useMemo(() => numQueries !== 0, [numQueries]);
   return {
-    isFetching,
-    selectedForecast,
-    setSelectedForecast,
-    formatedForecastPerDay,
+    isFetchingFromOpenMeteo,
+    selectedDay,
+    setSelectedDay,
+    hourlyForecastForTheWeek,
   };
 };

@@ -12,12 +12,11 @@ import { getWeatherIcon } from "../../../helpers/getWeatherIcon";
 import { getShortHour } from "../../../helpers/getShortHour";
 export const HourlyForecast = () => {
   const {
-    selectedForecast,
-    setSelectedForecast,
-    formatedForecastPerDay,
-    isFetching,
+    selectedDay,
+    setSelectedDay,
+    hourlyForecastForTheWeek,
+    isFetchingFromOpenMeteo,
   } = useHourlyForecast();
-  if (isFetching) return <p>loading</p>;
   return (
     <Box className={styles["hourly-forecast-block"]}>
       <Box className={styles["forecast-heading"]}>
@@ -25,24 +24,37 @@ export const HourlyForecast = () => {
           Hourly Forecast
         </Typography>
         <MenuDays
-          selectedForecast={selectedForecast}
-          setForecast={setSelectedForecast}
-          forecastForTheWeek={formatedForecastPerDay}
+          selectedDay={selectedDay}
+          setDay={setSelectedDay}
+          forecastForTheWeek={hourlyForecastForTheWeek}
         />
       </Box>
       <List sx={listStyles}>
-        {selectedForecast &&
-          selectedForecast.forecast?.map(({ time, code, temperature }) => (
-            <ListItem sx={listItemStyles} key={time}>
-              <img
-                className={styles.icon}
-                src={`images/weather-icons/${getWeatherIcon(code)}`}
-                alt="Weather Icon"
-              />
-              <ListItemText primary={getShortHour(new Date(time))} />
-              <p>{temperature}°</p>
-            </ListItem>
-          ))}
+        {isFetchingFromOpenMeteo ? (
+          <>
+            <div className={styles.skeleton} />
+            <div className={styles.skeleton} />
+            <div className={styles.skeleton} />
+            <div className={styles.skeleton} />
+            <div className={styles.skeleton} />
+            <div className={styles.skeleton} />
+            <div className={styles.skeleton} />
+          </>
+        ) : (
+          hourlyForecastForTheWeek[selectedDay].forecast.map(
+            ({ time, code, temperature }) => (
+              <ListItem sx={listItemStyles} key={time}>
+                <img
+                  className={styles.icon}
+                  src={`images/weather-icons/${getWeatherIcon(code)}`}
+                  alt="Weather Icon"
+                />
+                <ListItemText primary={getShortHour(new Date(time))} />
+                <p>{temperature}°</p>
+              </ListItem>
+            ),
+          )
+        )}
       </List>
     </Box>
   );

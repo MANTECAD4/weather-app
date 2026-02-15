@@ -11,7 +11,7 @@ import {
   PrecipitationUnits,
   TemperatureUnits,
   WindSpeedUnits,
-} from "../../../providers/app-state/useUnits";
+} from "../../../interfaces/units";
 
 type Props = {
   header: string;

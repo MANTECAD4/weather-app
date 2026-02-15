@@ -15,6 +15,8 @@ import { menuBtnStyles, menuItemsStyles } from "./NavbarStyles";
 
 import { UnitsMenuItem } from "./menu/UnitsMenuItem";
 import { useNavbar } from "./hooks/useNavbar";
+import { useIsFetching } from "@tanstack/react-query";
+import { useMemo } from "react";
 
 export const Navbar = () => {
   const {
@@ -26,6 +28,9 @@ export const Navbar = () => {
     setAnchorEl,
     usesImperial,
   } = useNavbar();
+  const numQueries = useIsFetching();
+  const isFetching = useMemo(() => numQueries !== 0, [numQueries]);
+
   return (
     <Box className={styles.navbar}>
       <img className={styles.logo} src="images/logo.svg" alt="Weather Now" />
@@ -34,6 +39,7 @@ export const Navbar = () => {
         variant="contained"
         onClick={handleClick}
         disableRipple
+        disabled={isFetching}
         startIcon={
           <SettingsOutlinedIcon sx={{ height: "3.2rem", width: "3.2rem" }} />
         }
