@@ -85,13 +85,13 @@
 }
 
 .dot:nth-child(1) {
-  animation: 1.5s 1s jump infinite both;
+  animation: 1.5s 0s jump infinite both;
 }
 .dot:nth-child(2) {
-  animation: 1.5s 1.33s jump infinite both;
+  animation: 1.5s 0.33s jump infinite both;
 }
 .dot:nth-child(3) {
-  animation: 1.5s 1.6s jump infinite both;
+  animation: 1.5s 0.6s jump infinite both;
 }
 
 @keyframes jump {

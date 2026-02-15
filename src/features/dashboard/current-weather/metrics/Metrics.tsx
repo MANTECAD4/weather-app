@@ -3,7 +3,7 @@ import styles from "./Metrics.module.css";
 import { FC } from "react";
 
 interface Props {
-  metricsData: { label: string; data: number; unit: string }[];
+  metricsData: { label: string; data: string; unit: string }[];
 }
 export const Metrics: FC<Props> = ({ metricsData }) => {
   return (

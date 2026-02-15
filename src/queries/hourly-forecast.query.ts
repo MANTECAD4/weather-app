@@ -5,7 +5,7 @@ import {
 
 export const hourlyForecastQuery = (options: HourlyForecastOptions) => ({
   queryFn: () => getHourlyForecast(options),
-  queryKey: ["hourly-forecast", options],
+  queryKey: ["open-meteo", "hourly-forecast", options],
   staleTime: 1000 * 60 * 15,
   refetchOnWindowFocus: false,
 });
