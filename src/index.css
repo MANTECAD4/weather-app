@@ -40,6 +40,8 @@
 
   --border-radius-1: 1rem;
   --border-radius-2: 15px;
+
+  --fadeIn: fade-in;
 }
 html {
   /* 1rem = 10px */
@@ -90,5 +92,13 @@ html {
   html {
     /* 1rem = 6px */
     font-size: 37.5%;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  0% {
+    opacity: 1;
   }
 }

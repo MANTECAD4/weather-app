@@ -41,6 +41,8 @@ export const HourlyForecast = () => {
             <div className={styles.skeleton} />
           </>
         ) : (
+          hourlyForecastForTheWeek &&
+          hourlyForecastForTheWeek[selectedDay] &&
           hourlyForecastForTheWeek[selectedDay].forecast.map(
             ({ time, code, temperature }) => (
               <ListItem sx={listItemStyles} key={time}>

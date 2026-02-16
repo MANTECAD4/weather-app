@@ -1,13 +1,25 @@
 import type { FC, ReactNode } from "react";
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  QueryCache,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { useHandleError } from "../app-state/useHandleError";
 
 type Props = {
   children: ReactNode;
 };
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  queryCache: new QueryCache({
+    onError: (error) => {
+      useHandleError.getState().setHasError(true);
+      useHandleError.getState().setError(error.message);
+    },
+  }),
+});
 export const TanstackProvider: FC<Props> = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>

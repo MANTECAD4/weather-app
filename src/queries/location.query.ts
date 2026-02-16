@@ -6,4 +6,5 @@ export const locationQuery = (location: string) => ({
   enabled: location !== "",
   refetchOnWindowFocus: false,
   staleTime: 1000 * 60 * 15,
+  placeholderData: (previousData: any, _previousQuery: any) => previousData,
 });

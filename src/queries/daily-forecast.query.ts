@@ -8,4 +8,5 @@ export const dailyForecastQuery = (options: DailyForecastOptions) => ({
   queryKey: ["open-meteo", "daily-forecast", options],
   staleTime: 1000 * 60 * 15,
   refetchOnWindowFocus: false,
+  placeholderData: (previousData: any, _previousQuery: any) => previousData,
 });

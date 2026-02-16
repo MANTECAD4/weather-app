@@ -8,5 +8,6 @@ export const currentWeatherQuery = (options: GetCurentWeatherOptions) => ({
   queryKey: ["open-meteo", "current-weather", options],
 
   refetchOnWindowFocus: false,
+  placeholderData: (previousData: any, _previousQuery: any) => previousData,
   staleTime: 1000 * 60 * 15,
 });
