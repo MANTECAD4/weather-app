@@ -13,7 +13,6 @@ interface LocationSlice {
   setLocationCoordinates: (coordinates: LocationCoordinates) => void;
   setName: (name: string) => void;
 }
-
 export const useLocation = create<LocationSlice>((set) => ({
   name: "Berlin, Germany",
   locationDetails: "",

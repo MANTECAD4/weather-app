@@ -20,6 +20,8 @@ import { useMemo } from "react";
 
 export const Navbar = () => {
   const {
+    entry,
+    ref,
     anchorEl,
     changeMetrics,
     handleClick,
@@ -32,7 +34,7 @@ export const Navbar = () => {
   const isFetching = useMemo(() => numQueries !== 0, [numQueries]);
 
   return (
-    <Box className={styles.navbar}>
+    <Box ref={ref} className={`${styles.navbar}`}>
       <img className={styles.logo} src="images/logo.svg" alt="Weather Now" />
       <Button
         id="units-button"

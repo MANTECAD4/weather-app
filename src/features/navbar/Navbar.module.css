@@ -9,3 +9,7 @@
 
   padding: 1.4rem 0;
 }
+
+.sticky {
+  position: fixed;
+}

@@ -5,7 +5,7 @@ interface ErrorHandlingSlice {
   error: string | undefined;
   codeError: number | undefined;
   setHasError: (hasError: boolean) => void;
-  setError: (error: string) => void;
+  setError: (error: string | undefined) => void;
   setCodeError: (code: number) => void;
 }
 
@@ -14,6 +14,6 @@ export const useHandleError = create<ErrorHandlingSlice>((set) => ({
   error: undefined,
   codeError: undefined,
   setCodeError: (code: number) => set({ codeError: code }),
-  setError: (error: string) => set({ error }),
+  setError: (error: string | undefined) => set({ error }),
   setHasError: (hasError: boolean) => set({ hasError }),
 }));

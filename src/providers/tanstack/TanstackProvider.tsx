@@ -12,7 +12,7 @@ type Props = {
   children: ReactNode;
 };
 
-const queryClient = new QueryClient({
+export const queryClient = new QueryClient({
   queryCache: new QueryCache({
     onError: (error) => {
       useHandleError.getState().setHasError(true);
