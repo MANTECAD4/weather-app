@@ -5,9 +5,9 @@ import {
 
 export const currentWeatherQuery = (options: GetCurentWeatherOptions) => ({
   queryFn: () => getCurrentWeather(options),
-  queryKey: ["open-meteo", "current-weather", options.coordinates ?? ""],
+  queryKey: ["open-meteo", "current-weather", options],
 
   refetchOnWindowFocus: false,
-  placeholderData: (previousData: any, _previousQuery: any) => previousData,
+  // placeholderData: (previousData: any, _previousQuery: any) => previousData,
   staleTime: 1000 * 60 * 15,
 });
