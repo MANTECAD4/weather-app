@@ -12,12 +12,15 @@ export const useHourlyForecast = () => {
   const { temperatureUnit } = useUnits();
 
   const { data: hourlyForecastForTheWeek = [{ day: "-", forecast: [] }] } =
-    useQuery(
-      hourlyForecastQuery({
+    useQuery({
+      ...hourlyForecastQuery({
         coordinates: locationCoordinates,
         temperatureUnit,
       }),
-    );
+      enabled:
+        locationCoordinates.latitude !== 0 &&
+        locationCoordinates.longitude !== 0,
+    });
 
   const numQueries = useIsFetching({ queryKey: ["open-meteo"] });
   const isFetchingFromOpenMeteo = useMemo(() => numQueries !== 0, [numQueries]);

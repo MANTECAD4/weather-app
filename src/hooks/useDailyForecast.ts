@@ -8,12 +8,14 @@ import { useMemo } from "react";
 export const useDailyForecast = () => {
   const { locationCoordinates } = useLocation();
   const { temperatureUnit } = useUnits();
-  const { data: dailyForecastResult } = useQuery(
-    dailyForecastQuery({
+  const { data: dailyForecastResult } = useQuery({
+    ...dailyForecastQuery({
       coordinates: locationCoordinates,
       temperatureUnit,
     }),
-  );
+    enabled:
+      locationCoordinates.latitude !== 0 && locationCoordinates.longitude !== 0,
+  });
 
   const forecastForTheWeek = useMemo(
     () => getForecastForTheWeek(dailyForecastResult),

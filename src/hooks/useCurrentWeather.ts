@@ -14,14 +14,16 @@ export const useCurrentWeather = () => {
 
   const { precipitationUnit, temperatureUnit, windSpeedUnit } = useUnits();
 
-  const { data: currentWeatherResult } = useQuery(
-    currentWeatherQuery({
+  const { data: currentWeatherResult } = useQuery({
+    ...currentWeatherQuery({
       coordinates: locationCoordinates,
       precipitationUnit,
       temperatureUnit,
       windSpeedUnit,
     }),
-  );
+    enabled:
+      locationCoordinates.latitude !== 0 && locationCoordinates.longitude !== 0,
+  });
 
   const metrics = useMemo(
     () =>

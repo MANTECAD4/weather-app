@@ -14,11 +14,11 @@ interface LocationSlice {
   setName: (name: string) => void;
 }
 export const useLocation = create<LocationSlice>((set) => ({
-  name: "Berlin, Germany",
+  name: "'",
   locationDetails: "",
   locationCoordinates: {
-    latitude: 52.52,
-    longitude: 13.41,
+    latitude: 0,
+    longitude: 0,
   },
   setLocationCoordinates: (coordinates: LocationCoordinates) =>
     set({ locationCoordinates: coordinates }),
