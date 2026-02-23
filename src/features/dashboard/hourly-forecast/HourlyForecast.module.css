@@ -2,10 +2,12 @@
   grid-area: hourly;
   display: flex;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
+
   padding: 2.2rem;
+  border-radius: 15px;
+
   max-height: 65rem;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .forecast-heading {
@@ -24,13 +26,14 @@
 }
 
 .skeleton {
-  height: 6.5rem;
   border-radius: 15px;
   border: 1px solid #555;
-  background-color: #333;
-  /* opacity: 0; */
-  animation: 2.5s pulse ease-in infinite both;
   margin-bottom: 2.4rem;
+
+  height: 6.5rem;
+  background-color: #333;
+
+  animation: 2.5s pulse ease-in infinite both;
 }
 
 /* 1360 px - SMALL LAPTOPS */

@@ -16,6 +16,5 @@ export const getLocationReverse = async ({
     await bigDataCloudGeocodingApi.get<GeoCodingReverseBigDataCloudResponse>(
       url,
     );
-  console.log(data);
   return data;
 };

@@ -10,4 +10,6 @@ export const currentWeatherQuery = (options: GetCurentWeatherOptions) => ({
   refetchOnWindowFocus: false,
   // placeholderData: (previousData: any, _previousQuery: any) => previousData,
   staleTime: 1000 * 60 * 15,
+  enabled:
+    options.coordinates.latitude !== 0 && options.coordinates.longitude !== 0,
 });

@@ -8,7 +8,7 @@
   border-radius: 15px;
 
   height: 25rem;
-  background-image: url("images/bg-today-large.svg");
+  background-image: url("/images/bg-today-large.svg");
   background-size: cover;
 }
 
@@ -69,6 +69,7 @@
 
 .text-loading {
   margin: 2.4rem 0 0 0;
+
   font-size: 2rem;
   letter-spacing: 0.2rem;
 }

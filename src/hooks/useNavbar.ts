@@ -3,8 +3,8 @@ import {
   PrecipitationUnits,
   TemperatureUnits,
   WindSpeedUnits,
-} from "../../../interfaces/units";
-import { useUnits } from "../../../providers/app-state/useUnits";
+} from "../interfaces/units";
+import { useUnits } from "../providers/app-state/useUnits";
 import React, { useMemo, useState } from "react";
 
 export const useNavbar = () => {
@@ -64,6 +64,7 @@ export const useNavbar = () => {
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     anchorEl ? setAnchorEl(null) : setAnchorEl(event.currentTarget);
   };
+
   return {
     ref,
     entry,

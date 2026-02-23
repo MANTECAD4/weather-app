@@ -1,8 +1,8 @@
 .metrics-section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2.4rem;
   grid-area: metrics;
+  gap: 2.4rem;
 }
 .metric {
   display: flex;

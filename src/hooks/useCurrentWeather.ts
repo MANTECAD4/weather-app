@@ -21,8 +21,6 @@ export const useCurrentWeather = () => {
       temperatureUnit,
       windSpeedUnit,
     }),
-    // enabled:
-    //   locationCoordinates.latitude !== 0 && locationCoordinates.longitude !== 0,
   );
 
   const metrics = useMemo(

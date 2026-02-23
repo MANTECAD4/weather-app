@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
 import styles from "./SearchSection.module.css";
-import { useSearch } from "./hooks/useSearch";
+import { useSearch } from "../../hooks/useSearch";
 import List from "@mui/material/List";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -42,8 +42,8 @@ export const SearchSection = () => {
           <Box className={styles["search-field"]}>
             <SearchOutlinedIcon
               sx={{
-                height: "2.4rem",
-                width: "2.4rem",
+                height: "3.2rem",
+                width: "3.2rem",
                 mr: 1,
                 color: "inherit",
               }}

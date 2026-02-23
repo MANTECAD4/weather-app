@@ -1,12 +1,12 @@
 import { useDebounce } from "@uidotdev/usehooks";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Location } from "../../../interfaces/geo-coding.interface";
-import { locationQuery } from "../../../queries/location.query";
+import { Location } from "../interfaces/geo-coding.interface";
+import { locationQuery } from "../queries/location.query";
 import {
   LocationCoordinates,
   useLocation,
-} from "../../../providers/app-state/useLocation";
+} from "../providers/app-state/useLocation";
 
 type LocationOptions = {
   name: string;

@@ -11,4 +11,6 @@ export const hourlyForecastQuery = (options: HourlyForecastOptions) => ({
   refetchOnWindowFocus: false,
   select: (data: any) => splitHourlyForecast(data),
   placeholderData: (previousData: any, _previousQuery: any) => previousData,
+  enabled:
+    options.coordinates.latitude !== 0 && options.coordinates.longitude !== 0,
 });

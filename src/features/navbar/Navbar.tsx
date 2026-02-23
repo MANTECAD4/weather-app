@@ -14,9 +14,9 @@ import styles from "./Navbar.module.css";
 import { menuBtnStyles, menuItemsStyles } from "./NavbarStyles";
 
 import { UnitsMenuItem } from "./menu/UnitsMenuItem";
-import { useNavbar } from "./hooks/useNavbar";
 import { useIsFetching } from "@tanstack/react-query";
 import { useMemo } from "react";
+import { useNavbar } from "../../hooks/useNavbar";
 
 export const Navbar = () => {
   const {
