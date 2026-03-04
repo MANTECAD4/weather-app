@@ -8,7 +8,6 @@ import BlockFlipped from "@mui/icons-material/BlockFlipped";
 import styles from "./ErrorScreen.module.css";
 import { menuBtnStyles } from "./navbar/NavbarStyles";
 import { useHandleError } from "../providers/app-state/useHandleError";
-import { QueryClient } from "@tanstack/react-query";
 import { queryClient } from "../providers/tanstack/TanstackProvider";
 export const ErrorScreen = () => {
   const { setError, setHasError } = useHandleError();

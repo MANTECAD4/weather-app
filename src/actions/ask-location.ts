@@ -1,5 +1,3 @@
-import { useLocation } from "../providers/app-state/useLocation";
-
 export const askLocation = (
   success: PositionCallback,
   error: PositionErrorCallback,

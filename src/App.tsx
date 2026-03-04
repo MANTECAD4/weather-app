@@ -8,7 +8,7 @@ import { useInitiApp } from "./hooks/useInitiApp";
 import { SearchPlaceholder } from "./features/SearchPlaceholder";
 
 export const App = () => {
-  const { hasError, error, hasContent } = useInitiApp();
+  const { hasError, hasContent } = useInitiApp();
   if (hasError) return <ErrorScreen />;
   return (
     <Box className="section-container">

@@ -20,7 +20,6 @@ import { useNavbar } from "../../hooks/useNavbar";
 
 export const Navbar = () => {
   const {
-    entry,
     ref,
     anchorEl,
     changeMetrics,

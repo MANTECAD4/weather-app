@@ -5,11 +5,11 @@ import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 
 import styles from "./HourlyForecast.module.css";
-import { MenuDays } from "./menu/MenuDays";
 import { listItemStyles, listStyles } from "./HourlyForecast.styles";
 import { useHourlyForecast } from "../../../hooks/useHourlyForecast";
 import { getWeatherIcon } from "../../../helpers/getWeatherIcon";
 import { getShortHour } from "../../../helpers/getShortHour";
+import { MenuDays } from "./Menu/MenuDays";
 export const HourlyForecast = () => {
   const {
     selectedDay,
